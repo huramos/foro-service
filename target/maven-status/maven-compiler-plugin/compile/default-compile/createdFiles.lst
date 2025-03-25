@@ -1,0 +1,11 @@
+com\foro\controller\CommentController.class
+com\foro\DTO\TopicDTO.class
+com\foro\foroApplication.class
+com\foro\controller\TopicController.class
+com\foro\repository\CommentRepository.class
+com\foro\model\Comment.class
+com\foro\repository\TopicRepository.class
+com\foro\service\CommentService.class
+com\foro\model\Topic.class
+com\foro\service\TopicService.class
+com\foro\DTO\CommentDTO.class
