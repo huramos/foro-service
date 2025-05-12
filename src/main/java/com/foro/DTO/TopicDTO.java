@@ -1,73 +1,47 @@
 package com.foro.DTO;
 
 import jakarta.validation.constraints.NotBlank;
+import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class TopicDTO {
+public class TopicDTO implements Serializable {
 
     private Long id;
 
-    @NotBlank(message = "El título no puede estar vacío")
+    @NotBlank(message = "El título del tópico no puede estar vacío")
     private String title;
 
-    @NotBlank(message = "La descripción no puede estar vacía")
+    @NotBlank(message = "La descripción del tópico no puede estar vacía")
     private String description;
 
+    private String createdBy;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createdAt;
 
-    private List<CommentDTO> comments;
-
-    // Constructor vacío
     public TopicDTO() {}
 
-    // Constructor con parámetros
-    public TopicDTO(Long id, String title, String description, LocalDateTime createdAt, List<CommentDTO> comments) {
+    public TopicDTO(Long id, String title, String description, String createdBy, LocalDateTime createdAt) {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.createdAt = createdAt;
-        this.comments = comments;
-    }
-
-    // Getters y setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdBy = createdBy;
         this.createdAt = createdAt;
     }
 
-    public List<CommentDTO> getComments() {
-        return comments;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public void setComments(List<CommentDTO> comments) {
-        this.comments = comments;
-    }
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
+
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
+
+    public String getCreatedBy() { return createdBy; }
+    public void setCreatedBy(String createdBy) { this.createdBy = createdBy; }
+
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
 }
